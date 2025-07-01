@@ -1,0 +1,71 @@
+# student_record.py
+
+students = []
+
+def add_student():
+    roll = input("Enter Roll Number: ")
+    name = input("Enter Name: ")
+    age = input("Enter Age: ")
+    course = input("Enter Course: ")
+
+    student = {
+        "roll": roll,
+        "name": name,
+        "age": age,
+        "course": course
+    }
+    students.append(student)
+    print("Student added successfully!\n")
+
+def view_students():
+    if not students:
+        print("No student records found.\n")
+    else:
+        for s in students:
+            print(f"Roll: {s['roll']}, Name: {s['name']}, Age: {s['age']}, Course: {s['course']}")
+        print()
+
+def search_student():
+    search_roll = input("Enter Roll Number to search: ")
+    for s in students:
+        if s["roll"] == search_roll:
+            print(f"Found: Roll: {s['roll']}, Name: {s['name']}, Age: {s['age']}, Course: {s['course']}\n")
+            return
+    print("Student not found.\n")
+
+def delete_student():
+    delete_roll = input("Enter Roll Number to delete: ")
+    for i, s in enumerate(students):
+        if s["roll"] == delete_roll:
+            students.pop(i)
+            print("Student deleted successfully!\n")
+            return
+    print("Student not found.\n")
+
+def menu():
+    while True:
+        print("🎓 Student Record Management System")
+        print("1. Add Student")
+        print("2. View All Students")
+        print("3. Search Student")
+        print("4. Delete Student")
+        print("5. Exit")
+
+        choice = input("Enter your choice (1-5): ")
+
+        if choice == '1':
+            add_student()
+        elif choice == '2':
+            view_students()
+        elif choice == '3':
+            search_student()
+        elif choice == '4':
+            delete_student()
+        elif choice == '5':
+            print("Exiting program...")
+            break
+        else:
+            print("Invalid choice. Please try again.\n")
+
+if __name__ == "__main__":
+    menu()
