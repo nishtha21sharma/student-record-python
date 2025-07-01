@@ -22,8 +22,4 @@ A simple command-line application to manage student records using Python. It all
 
 ---
 
-## 🚀 How to Run the Program
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/student-record-python
